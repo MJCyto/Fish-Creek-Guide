@@ -1,0 +1,11 @@
+Sunny condition img: http://wallpaperswide.com/a_sunny_days_end-wallpapers.html
+Forrest Background: http://icloudpicture.com/4k-wallpaper/best-forest-4k-wallpaper/
+Path Background: https://wallpapercave.com/paths-wallpapers
+Construction Wallpaper: https://wallpapermemory.com/482468
+Draggable JQuery command: Sourced from https://jqueryui.com/draggable/
+Map image: http://www.chengfolio.com/google_map_customizer
+Map paths and customisation by MJ Kochuk
+Zoom buttons by MJ Kochuk
+Full screen button by MJ Kochuk
+Fish Creek Park Logo by MJ Kochuk
+Weather API: https://openweathermap.org/

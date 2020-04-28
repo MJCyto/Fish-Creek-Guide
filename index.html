@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fish Creek Park Guide</title>
+    <meta name="author" content="MJ Kochuk">
+    <meta name="date" content="3/19/2019">
+    <meta name="viewport" content="width=device-width">
+    <link href="style/FishCreek.css" rel="stylesheet">
+    <link rel="shortcut icon" href="image/FishCreekLogo.png">
+    <script src="script/FishCreek.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
+    <script src='https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet'/>
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $(function () {
+            $("#draggable").draggable();
+        });
+    </script>
+    <!--Sourced from https://jqueryui.com/draggable/-->
+
+
+</head>
+<body onload="getWeather()">
+<header>
+    <a href="javascript:void(0);" id="logoLink" onclick="navigate(this)">
+        <img src="image/FishCreekLogo.png" alt="Fish Creek Guide Logo" id="logo">
+    </a>
+    <h1 id="title">Fish Creek Provincial Park</h1>
+</header>
+<div id="navBar">
+    <a href="javascript:void(0);" id="conditionsLink" onclick="navigate(this)" class="navLink">
+        <div id="conditionsNav">
+            <h2 class="navHeader">Conditions</h2>
+            <br>
+            <div id="weatherNav">
+            </div>
+        </div>
+    </a
+    ><a href="javascript:void(0);" id="wildlifeLink" onclick="navigate(this)" class="navLink">
+    <div id="wildlifeNav">
+        <h2 class="navHeader">Wildlife</h2>
+    </div>
+</a
+><a href="javascript:void(0);" id="trailsLink" onclick="navigate(this)" class="navLink">
+    <div id="trailsNav">
+        <h2 class="navHeader">Trails</h2>
+    </div>
+</a
+><a href="javascript:void(0);" id="maintenanceLink" onclick="navigate(this)" class="navLink">
+    <div id="maintenanceNav">
+        <h2 class="navHeader">Maintenance</h2>
+    </div>
+</a>
+</div>
+
+<div id="content">
+    <div id="conditionsContent" class="contentContainer">
+        <div><h2 class="contentHeader">Conditions</h2></div>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aut beatae blanditiis cumque esse, fugiat
+            harum iure, perferendis perspiciatis provident quos reiciendis sapiente sed sint suscipit, ut velit
+            veritatis. Atque cupiditate, dolorem expedita iste laborum odio placeat praesentium quam ratione.</p>
+    </div>
+
+    <div id="wildlifeContent" class="contentContainer">
+        <h2 class="contentHeader">Wildlife</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem consectetur dolor dolore eaque id iusto
+            magnam minus molestiae non nostrum nulla, odio odit officia officiis, porro praesentium quam quas quo quod
+            quos ratione reprehenderit sapiente similique tenetur, ullam vel vero?</p>
+    </div>
+
+    <!--<div id="trailsContent" class="contentContainer">-->
+
+    <!--</div>-->
+
+    <div id="maintenanceContent" class="contentContainer">
+        <h2 class="contentHeader">Maintenance</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut autem cumque debitis delectus deserunt dicta
+            dignissimos dolores ducimus est eum fuga inventore laudantium magnam maxime modi molestias nesciunt nostrum,
+            officia perspiciatis porro quae quo ratione sint soluta sunt velit vero.</p>
+    </div>
+</div>
+
+<div id='mapDiv'>
+
+    <h2 class="contentHeader" id="trailsHeader">Trails</h2>
+    <a href="javascript:void(0);" onclick="expandMap()">
+        <img src="svg/Expand.png" alt="" id="expandIcon">
+    </a>
+    <div id="zooms">
+        <a id="zoomIn" onclick="zoomMap(this)" href="javascript:void(0);" class="zoomButton"
+        ><img src="image/Plus.png" alt=""></a>
+
+        <a id="zoomOut" onclick="zoomMap(this)" href="javascript:void(0);" class="zoomButton"
+        ><img src="image/Minus.png" alt=""></a>
+    </div>
+
+    <div id="draggable" class="ui-widget-content">
+
+        <svg id="interactiveMap" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+             viewBox="0 0 6352 5000">
+            <defs>
+                <style>.cls-1 {
+                    fill: none;
+                    stroke-miterlimit: 10;
+                    stroke-width: 15px;
+                }</style>
+            </defs>
+            <title>FishCreekMapMain</title>
+            <g id="Layer_1" data-name="Layer 1">
+                <image width="6352" height="5000" xlink:href="image/BIG_Capture.png"/>
+            </g>
+            <g id="Layer_2" data-name="Layer 2">
+
+                <a href="javascript:void(0);" id="Trail1" onclick="trailClicked(this)">
+                    <polyline class="cls-1"
+                              points="3364 1901.5 3361.5 1907.5 3356 1913.5 3347 1916.5 3338 1920 3330.5 1925.5 3327.5 1937.5 3323.5 1953 3316 1980.5 3307.5 1991 3292.5 2003 3286 2016 3269 2037 3259.5 2055 3259.5 2061.5 3262 2071.5 3267.5 2085.5 3267 2092 3265.5 2102.5 3263 2126.5 3259.5 2141 3254 2151 3240 2169 3226 2180 3210.5 2189 3182 2195.5 3166 2206.5 3143.5 2232.5 3120.5 2262 3104 2281.5 3097.5 2286 3080.5 2293.5 3077 2297.5 3071.5 2302.5 3055.5 2306.5 3050 2306.5 3034.5 2300.5 3030 2299 3026 2301 3015 2306.5 2996 2316 2987 2322.5 2977.5 2333.5 2969 2344.5 2961.5 2348 2953.5 2353.5 2946.5 2364 2928.5 2385 2903 2423 2892.5 2439.5 2892.5 2455 2888 2463.5 2884.5 2469 2875 2469 2863.5 2472 2854 2478 2845 2492.5 2838.5 2500"/>
+                </a>
+
+                <a href="javascript:void(0);" id="Trail2" onclick="trailClicked(this)">
+                    <polyline class="cls-1"
+                              points="1776 2104.5 1787 2088 1791 2079.5 1800 2073 1811.5 2062.5 1816 2056.5 1828 2061 1848 2066 1871 2073 1885.5 2084 1894 2092.5 1915.5 2095.5 1938 2104.5 1956 2114.5 1973 2126 1980.5 2133 1997.5 2133 2015 2127 2017.5 2118 2011 2102.5 2001.5 2083.5 1994.5 2065 1996.5 2061 2008 2050.5 2027.5 2029 2039 2015.5 2055.5 1998.5 2075 1995 2115 1983 2135.5 1983 2168 1957.5 2183.5 1942 2195.5 1937.5 2209.5 1941.5 2225 1944.5 2253.5 1947 2276.5 1944.5 2293.5 1937.5 2313.5 1925 2363.5 1933 2388 1941.5 2403 1954 2407.5 1957 2438 1953.5 2456 1959.5 2497.5 1983 2526.5 2016 2551 2051.5 2567.5 2073 2591 2079.5 2622.5 2090.5 2637.5 2099.5 2656 2126.5 2652.5 2137 2661.5 2153 2675 2180.5 2693.5 2198 2702 2209.5 2707 2232.5 2725 2254.5 2760.5 2284 2784.5 2311.5 2789 2334 2793 2357 2798.5 2370 2842 2390.5 2874.5 2399.5 2919.5 2415.5 2941 2424 2981.5 2416.5 3013.5 2412.5 3047 2420.5 3085 2440.5 3125 2460 3139 2469.5 3151.5 2500 3165 2546 3172.5 2567 3181 2578.5 3184.5 2582.5 3176 2585 3163 2594.5 3161 2606.5 3163 2630 3164 2641 3151 2654 3141.5 2674.5 3135.5 2691.5"/>
+                </a>
+
+                <a href="javascript:void(0);" id="Trail3" onclick="trailClicked(this)">
+                    <polyline class="cls-1"
+                              points="3743.67 3285 3781 3250.34 3807.67 3231.67 3814.34 3225.67 3814.34 3218.34 3808.34 3200.34 3791.67 3175 3779 3146.34 3757.67 3125 3731.67 3093 3721 3067 3696.34 3035 3665 3005.67 3639 2989.67 3633 2974.33 3633 2965.66 3636.33 2941 3630.33 2908.33 3620.33 2879.66 3601 2865.66 3572.33 2847.66 3561 2817 3561 2787 3561 2745.66 3543.67 2702.33 3509.67 2645.66 3485 2627.66 3451.67 2614.33 3417 2595 3388.33 2569.66 3373.67 2544.33 3367.66 2519 3356.33 2504.33 3326.33 2500 3326.33 2471.66 3326.33 2374.33 3330.33 2239.66 3329.66 2227.66 3304.99 2214.33 3279.66 2193.66 3268.99 2169.66 3263.66 2142.99 3269.66 2043.66 3291.66 2013.66 3330.33 1944.33 3336.33 1928.99 3358.33 1918.99 3367.66 1904.33"/>
+                </a>
+
+                <a href="javascript:void(0);" id="Trail4" onclick="trailClicked(this)">
+                    <polyline class="cls-1"
+                              points="4137.67 3073 4126.34 3078.33 4114.34 3075.67 4099.67 3059 4087.67 3047 4078.34 3050.33 4073.67 3057 4066.34 3067.67 4058.34 3074.33 4053 3071 4053 3053 4056.34 3017.67 4063.67 2975.67 4074.34 2937.67 4081 2913 4078.34 2895.67 4065.67 2855 4053 2809.67 4030.34 2753.67 4015 2700.33 3996.34 2683 3980.34 2673.67 3933.01 2600.33 3893.01 2539 3881.67 2519 3881.67 2491.67 3881.67 2447.67 3875.67 2415.67 3871.67 2402.33 3853.01 2381.67 3841.01 2346.33 3833.67 2335 3810.34 2317 3787 2298.33 3747 2271 3715 2253.67 3692.34 2241.67 3663 2229.67 3631.67 2225 3609.67 2217 3586.34 2188.33 3573.67 2163.67 3560.34 2133.67 3551 2109 3528.34 2086.33 3501 2059 3477 2023.67 3471 1995 3454.34 1965.67 3433 1932.33 3415.67 1915.67 3373.67 1904.33"/>
+                </a>
+
+                <a href="javascript:void(0);" id="Trail5" onclick="trailClicked(this)">
+                    <polyline class="cls-1"
+                              points="845 1377 849 1389.67 865 1401.67 882.33 1410.33 893.66 1407 913.66 1430.33 943.66 1467 956.33 1477 971 1477 992.33 1482.33 1025 1496.33 1069 1519 1106.33 1540.33 1128.33 1553.67 1139 1553.67 1168.33 1540.33 1181.67 1541 1207 1556.33 1225.67 1566.33 1243 1579 1270.33 1575 1301.67 1568.33 1313.67 1552.33 1348.33 1543 1391 1535 1438.33 1525.67 1493.66 1517 1525.66 1515 1601 1516.33 1663.66 1521.67 1685.66 1521.67"/>
+                </a>
+            </g>
+        </svg>
+
+
+    </div>
+</div>
+
+<div id="parksideInfo" class="trailInfo">
+
+
+    <table>
+        <tr>
+            <td><h2>Parkside Trail</h2></td>
+            <td>
+                <div id="parksideRating">
+                    <svg id="Layer_3" data-name="Layer 3" xmlns="http://www.w3.org/2000/svg"
+                         viewBox="0 0 518 496.67"
+                         width="50px">
+                        <title>StarNew</title>
+                        <path class="star"
+                              d="M174.24,155,251.91,24.64s7.83-12,16.33,0c7.91,11.16,77,130.33,77,130.33l147.67,33s11,4.56,2,17.67C486.24,218.3,398.57,317,398.57,317l13,146.33s2.67,21-17.67,11.67-134.33-57-134.33-57l-134,57s-15,9-18-8,13.67-150,13.67-150L21.91,203.64s-7.05-11.36,3.33-15C36,184.88,174.24,155,174.24,155Z"/>
+                    </svg>
+
+                    <svg id="Layer_4" data-name="Layer 4" xmlns="http://www.w3.org/2000/svg"
+                         viewBox="0 0 518 496.67"
+                         width="50px">
+                        <title>StarNew</title>
+                        <path class="star"
+                              d="M174.24,155,251.91,24.64s7.83-12,16.33,0c7.91,11.16,77,130.33,77,130.33l147.67,33s11,4.56,2,17.67C486.24,218.3,398.57,317,398.57,317l13,146.33s2.67,21-17.67,11.67-134.33-57-134.33-57l-134,57s-15,9-18-8,13.67-150,13.67-150L21.91,203.64s-7.05-11.36,3.33-15C36,184.88,174.24,155,174.24,155Z"/>
+                    </svg>
+
+                    <svg id="Layer_5" data-name="Layer 5" xmlns="http://www.w3.org/2000/svg"
+                         viewBox="0 0 518 496.67"
+                         width="50px">
+                        <title>StarNew</title>
+                        <path class="star"
+                              d="M174.24,155,251.91,24.64s7.83-12,16.33,0c7.91,11.16,77,130.33,77,130.33l147.67,33s11,4.56,2,17.67C486.24,218.3,398.57,317,398.57,317l13,146.33s2.67,21-17.67,11.67-134.33-57-134.33-57l-134,57s-15,9-18-8,13.67-150,13.67-150L21.91,203.64s-7.05-11.36,3.33-15C36,184.88,174.24,155,174.24,155Z"/>
+                    </svg>
+
+                    <svg id="Layer_6" data-name="Layer 6" xmlns="http://www.w3.org/2000/svg"
+                         viewBox="0 0 518 496.67"
+                         width="50px">
+                        <title>StarNew</title>
+                        <path class="star"
+                              d="M174.24,155,251.91,24.64s7.83-12,16.33,0c7.91,11.16,77,130.33,77,130.33l147.67,33s11,4.56,2,17.67C486.24,218.3,398.57,317,398.57,317l13,146.33s2.67,21-17.67,11.67-134.33-57-134.33-57l-134,57s-15,9-18-8,13.67-150,13.67-150L21.91,203.64s-7.05-11.36,3.33-15C36,184.88,174.24,155,174.24,155Z"/>
+                    </svg>
+
+                    <svg id="Layer_7" data-name="Layer 7" xmlns="http://www.w3.org/2000/svg"
+                         viewBox="0 0 518 496.67"
+                         width="50px">
+                        <title>StarNew</title>
+                        <path class="star"
+                              d="M174.24,155,251.91,24.64s7.83-12,16.33,0c7.91,11.16,77,130.33,77,130.33l147.67,33s11,4.56,2,17.67C486.24,218.3,398.57,317,398.57,317l13,146.33s2.67,21-17.67,11.67-134.33-57-134.33-57l-134,57s-15,9-18-8,13.67-150,13.67-150L21.91,203.64s-7.05-11.36,3.33-15C36,184.88,174.24,155,174.24,155Z"/>
+                    </svg>
+                </div>
+            </td>
+        </tr>
+    </table>
+
+    <br>
+    <h3>Accessibility</h3>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam deleniti dicta ipsum. Accusantium beatae eum
+        explicabo incidunt maiores nemo numquam obcaecati. Corporis est fugit iusto libero maxime necessitatibus nostrum
+        quo sapiente, temporibus vero? Accusamus architecto autem error exercitationem, illum possimus?</p>
+    <br>
+    <h3>Audio Tour</h3>
+    <audio controls>
+        <source src="Sounds/15_Minute_Empty.mp3" type="audio/mp3">
+    </audio>
+    <h3>Comments & Reviews</h3>
+</div>
+
+</body>
+</html>

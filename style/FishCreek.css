@@ -1,0 +1,293 @@
+html {
+    font-family: 'Poiret One', cursive;
+    margin: 0 auto;
+}
+
+header {
+    height: 17vh;
+    display: flex;
+}
+
+#draggable {
+    width: 150vw;
+}
+
+#zooms{
+    position: relative;
+    float: right;
+    right: 60px;
+    top: 100px;
+    width: 5vw;
+    z-index: 5;
+}
+
+#expandIcon{
+    position: relative;
+    left: -180px;
+    top: 150px;
+    width: 0;
+    z-index: 5;
+    transition-duration: .4s;
+}
+
+#logo {
+    width: 100px;
+    height: auto;
+    align-self: center;
+}
+
+#logoLink {
+    height: inherit;
+    width: auto;
+    display: flex;
+    justify-self: center;
+    outline: none;
+}
+
+#title {
+    padding-left: 10px;
+    font-size: 40px;
+    display: flex;
+    align-self: center;
+}
+
+.navHeader {
+    margin-top: 0;
+    padding-top: 20px;
+    margin-bottom: 0;
+    height: 100px;
+}
+
+body {
+    margin: 0;
+}
+
+#navBar {
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    transition-duration: .2s;
+}
+
+#navBar div {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: inherit;
+    height: 83vh;
+    text-align: center;
+    font-size: 35px;
+    background-repeat: no-repeat;
+    background-size: 200vh;
+    overflow: hidden;
+    transition-duration: .2s;
+}
+
+#navBar a {
+    display: flex;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 25vw;
+    height: 83vh;
+    text-align: center;
+    font-size: 35px;
+    overflow: hidden;
+    transition-duration: .2s;
+}
+
+#content {
+    width: 80%;
+    margin: 0 auto;
+}
+
+#trailsContent {
+    height: 50px;
+}
+
+#content div {
+    overflow: hidden;
+    transition-duration: .5s;
+}
+
+.navLink {
+    height: 83vh;
+}
+
+.contentHeader {
+    font-size: 50px;
+}
+
+p {
+    font-size: 30px;
+}
+
+#conditionsNav {
+    background-image: url("../image/Sunny_Condition.jpg");
+    background-position: center;
+    background-size: 10vh;
+    background-position-x: -600px;
+    width: 1vw;
+}
+
+#trailsNav {
+    background-image: url("../image/Trails_Clear.jpg");
+    background-position: center;
+}
+
+#maintenanceNav {
+    background-image: url("../image/Maintenance_Clear.jpg");
+    background-position: center;
+    background-position-y: -150px;
+}
+
+#wildlifeNav {
+    background-image: url("../image/Wildlife_Clear.jpg");
+    background-position: center;
+    background-size: 5vh;
+}
+
+#conditionsLink, #wildlifeLink, #trailsLink, #maintenanceLink {
+    text-decoration: none;
+    color: black;
+}
+
+#weatherNav {
+    padding-top: 0;
+    display: block;
+    flex-direction: column;
+    height: 400px;
+    transition-duration: 2s;
+    width: 30vw;
+    position: absolute;
+    top: 60px;
+}
+
+#weatherNav h3, #weatherNav h2 {
+    margin: 0;
+}
+
+.fade {
+    -webkit-animation: fade 2s;
+    animation: fade 2s;
+    opacity: 1;
+}
+
+.star {
+    fill: none;
+    stroke: #000;
+    stroke-miterlimit: 10;
+    stroke-width: 20px;
+}
+
+.trailInfo {
+    width: 90%;
+    margin: 0 auto;
+    height: 0;
+    overflow: hidden;
+}
+
+#trailsContent {
+    float: left;
+    height: 0;
+}
+
+#trailsHeader {
+    position: relative;
+    float: left;
+    display: block;
+    padding-left: 70px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: white;
+    margin-bottom: 0;
+    width: 120px;
+    z-index: 5;
+}
+
+#mapDiv {
+    height: 0;
+    width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+    transition-duration: .4s;
+}
+
+.trailLine {
+    stroke: #FFDC00;
+}
+
+.trailLine:hover {
+    stroke: #B20970;
+}
+
+.trailLineOrange {
+    stroke: #B20970;
+}
+
+audio{
+    outline: none;
+}
+
+.trailInfo h2{
+    font-size: 40px;
+}
+
+.trailInfo h3{
+    font-size: 35px;
+}
+
+#parksideRating{
+    padding-left: 50px;
+}
+
+
+#interactiveMap {
+    position: relative;
+    top: -400px;
+    height: auto;
+    z-index: 1;
+    size: inherit;
+    margin: 0 auto;
+}
+
+@-webkit-keyframes fade {
+    from {
+        opacity: 0
+    }
+    to {
+        opacity: 1
+    }
+}
+
+@keyframes fade {
+    from {
+        opacity: 0
+    }
+    to {
+        opacity: 1
+    }
+}
+
+.contentContainer {
+    height: 0;
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+    .navHeader {
+        font-size: 15px;
+        padding-top: 40px;
+    }
+
+    #weatherNav h2, #weatherNav h3 {
+        font-size: 15px;
+    }
+
+    .contentHeader {
+        font-size: 25px;
+        padding-top: 10px;
+    }
+
+    .contentContainer p {
+        font-size: 20px;
+    }
+}
